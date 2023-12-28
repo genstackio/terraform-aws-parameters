@@ -4,6 +4,6 @@ resource "aws_ssm_parameter" "param" {
   type  = each.value.secret == true ? "SecureString" : "String"
   value = null != each.value.default_value ? each.value.default_value : ""
   lifecycle {
-    ignore_changes = ["value"]
+    ignore_changes = [value]
   }
 }
